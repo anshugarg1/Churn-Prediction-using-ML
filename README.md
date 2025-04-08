@@ -36,9 +36,12 @@ This project aims to predict customer churn for a video streaming service using 
 - Created custom features like `AvgChargePerMonth` (if needed).
 
 ### 5. Modeling
-- Trained two separate models:
+- Different approaches were followed here:
+  - Compare cross validation score for XGBClassifier, RandomForestClassifier, LGBMClassifier, LogisticRegression.
   - `XGBoostClassifier` (label-encoded features)
-  - `LogisticRegression` (one-hot encoded + scaled features)
+  - `XGBoostClassifier` with GridSearch (label-encoded features)
+  - `LogisticRegression` (one-hot encoded + binary features)
+  -  Ensemble Learning: `XGBoostClassifier` +  `LogisticRegression`
 
 ### 6. Hyperparameter Tuning
 - Applied `GridSearchCV` to tune XGBoost parameters for better ROC AUC performance.
@@ -46,7 +49,7 @@ This project aims to predict customer churn for a video streaming service using 
 ### 7. Ensemble
 - Combined predictions from both models using weighted average:
   ```python
-  final_probs = 0.6 * xgb_probs + 0.4 * lr_probs
+  final_probs = 0.6 * XGBoostClassifier + 0.4 * LogisticRegression
   ```
 
 ### 8. Submission
@@ -60,7 +63,7 @@ This project aims to predict customer churn for a video streaming service using 
 - Python, Pandas, NumPy
 - Matplotlib, Seaborn (for visualization)
 - Scikit-learn (for ML models, preprocessing, and tuning)
-- XGBoost
+- XGBoostClassifier, RandomForestClassifier, LGBMClassifier, LogisticRegression
 
 ---
 
