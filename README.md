@@ -18,17 +18,22 @@ This project aims to predict customer churn for a video streaming service using 
 - Loaded training and test datasets using `pandas`.
 
 ### 2. Exploratory Data Analysis (EDA)
-- Explored data distribution, missing values, and churn patterns.
+- Explored data distribution, missing values, class imbalance and churn patterns.
 - Visualized key trends in features like monthly charges, account age, and ratings.
+- Pairwise correlation graphs and matrix.
+- Find high correlation features.
 
 ### 3. Data Cleaning
 - Filled missing values.
 - Dropped irrelevant columns like `CustomerID`.
+- Removed high correlation columns.
+- Standardize numeric data dimensions (for LR).
 
 ### 4. Feature Engineering
-- Used `Label Encoding` for binary features (Yes/No).
-- Applied `One-Hot Encoding` for multi-category columns.
-- Created custom features like `AvgChargePerMonth`.
+- Used `Binary Encoding` for binary features (Yes/No).
+- Used `One-Hot Encoding` for multi-category columns (for LR).
+- Used 'Label Encoding' for multi-category columns (for tree based models).
+- Created custom features like `AvgChargePerMonth` (if needed).
 
 ### 5. Modeling
 - Trained two separate models:
